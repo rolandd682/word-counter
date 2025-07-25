@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+}
+:root {
+  /* spacing */
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+
+  /* color */
+  --color-neutral0: #ffffff;
+  --color-neutral100: #f2f2f7;
+  --color-neutral200: #e4e4ef;
+  --color-neutral900: #12131a;
+  --color-purple400: #d3a0fa;
+  --color-yellow500: #ff9f00;
+  --color-orange500: #fe8159;
+
+  /* typography */
+
+  --font-sizebold-mobiie: 40px;
+}
+
+html {
+  padding-left: 16px;
+  padding-top: 16px;
+  padding-right: 16px;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+#background-black {
+  background-color: var(--color-neutral900);
+}
+#background-white {
+  background-color: var(--color-neutral0);
+}
+.logo-container {
+  width: 100%;
+  /* temporary */
+  height: 30px;
+  /* temporary */
+  display: flex;
+  flex-direction: row;
+  background-color: yellow;
+}
+#logo-text {
+  font-family: "DM Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 130%;
+  text-align: center;
+  padding: 12px;
+}
+#mode-button {
+  height: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 6px;
+  margin-left: auto;
+}
+#title,
+#title-dark {
+  width: 100%;
+  font-family: "DM Sans", sans-serif;
+  font-size: 40px;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+}
+#title-dark {
+  color: var(--color-neutral100);
+}
+
+#text-area {
+  height: 200px;
+  width: 100%;
+  border-radius: 12px;
+  background-color: var(--color-neutral100);
+
+  border-color: var(--color-neutral200);
+}
+#text-area:focus {
+  outline: var(--color-neutral200) solid 2px;
+}
+.count-boxes {
+  margin-top: var(--spacing-300);
+}
+#char-count-box,
+#word-count-box,
+#sentence-count-box {
+  background-color: var(--color-purple400);
+  height: 130px;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.6;
+}
+#word-count-box {
+  background-color: var(--color-yellow500);
+  margin-top: var(--spacing-200);
+}
+#sentence-count-box {
+  background-color: var(--color-orange500);
+  margin-top: var(--spacing-200);
+  font-size: 20px;
+}
+#total-char-count,
+#word-count,
+#sentence-count {
+  font-size: var(--font-sizebold-mobiie);
+  font-weight: 700;
+  font-size: var(--font-sizebold-mobiie);
+}
+.density-container > p {
+  font-size: 24px;
+  color: white;
+  font-weight: 600;
+}
+
+#progressBarContainer {
+  width: 100%;
+  background-color: grey;
+}
+#progressBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}

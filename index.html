@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Character Counter</title>
+  </head>
+  <body id="background-black">
+    <div class="logo-container">
+      <img src="Logo.svg" alt="no picture?" />
+      <h1 id="logo-text">Character Counter</h1>
+      <button id="mode-button"><img src="moon-02.svg" alt="" /></button>
+    </div>
+    <div>
+      <h3 id="title-dark">Analyze your text in real-time.</h3>
+    </div>
+    <div class="text-area-box">
+      <textarea
+        name="text-to-count"
+        id="text-area"
+        placeholder="Start typing here… (or paste your text)"
+      ></textarea>
+    </div>
+    <div class="options-container">
+      <p>Exclude Spaces</p>
+      <p>Set Character Limit</p>
+      <p>Approximate reading time: somejavascript</p>
+    </div>
+    <div class="count-boxes">
+      <div id="char-count-box">
+        <p id="total-char-count">0</p>
+        <p>Total Characters</p>
+      </div>
+      <div id="word-count-box">
+        <p id="word-count">0</p>
+        <p>Word Count</p>
+      </div>
+      <div id="sentence-count-box">
+        <p id="sentence-count">0</p>
+        <p>Sentence Count</p>
+      </div>
+    </div>
+    <div class="density-container">
+      <p>Letter Density</p>
+    </div>
+    <div id="progressBars"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
