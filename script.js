@@ -63,8 +63,6 @@ function findletterDensities() {
     letterDensities.push(letterDensity);
   }
 
-  console.log(letterDensities);
-
   // console.log(letterArray);
   // console.log(letterSet);
 }
