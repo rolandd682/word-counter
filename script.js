@@ -51,13 +51,20 @@ function findletterDensities() {
       (letter) => letter === uniqueLetter
     ).length;
 
-    const letterPercentages = {};
-    for (const char in letterObject) {
-      letterPercentages[char] = (letterObject[char] / totalLetters) * 100;
-    }
-    // console.log(letterPercentages);
-    progressBarUpdate(letterPercentages, totalLetters);
+    const letterPercentage = letterCount / letterArray.length;
+
+    const letterDensity = {
+      [uniqueLetter]: {
+        count: letterCount,
+        percentage: letterPercentage,
+      },
+    };
+
+    letterDensities.push(letterDensity);
   }
+
+  // console.log(letterArray);
+  // console.log(letterSet);
 }
 
 function progressBarUpdate(percentages, total) {
