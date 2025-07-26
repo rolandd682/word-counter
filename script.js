@@ -33,41 +33,31 @@ function counter() {
 modeButton.addEventListener("click", themeChange);
 
 textInput.addEventListener("input", counter);
-textInput.addEventListener("input", findletterDensity);
+textInput.addEventListener("input", findletterDensities);
 
-function findletterDensity() {
-  const letterObject = {};
-  // const upperCaseLetters = textInput.value.toUpperCase();
-  // for (let i = 0; i < upperCaseLetters.length; i++) {
-  //   char = upperCaseLetters[i];
-  //   if (char >= "A" && char <= "Z") {
-  //     letterObject[char] = (letterObject[char] || 0) + 1;
-  //   }
-  //   // console.log(letterObject);
-  //   const totalLetters = Object.values(letterObject).reduce(
-  //     (sum, count) => sum + count,
-  //     0
-  //   );
+function findletterDensities() {
+  const letterDensities = [];
 
-  //   const letterPercentages = {};
-  //   for (const char in letterObject) {
-  //     letterPercentages[char] = (letterObject[char] / totalLetters) * 100;
-  //   }
-  //   // console.log(letterPercentages);
-  //   progressBarUpdate(letterPercentages, totalLetters);
-  // }
   const userInput = textInput.value.toUpperCase();
+
   const letterArray = userInput
     .split("")
     .filter((letter) => /^[A-Z]+$/.test(letter));
-  for (const letter of letterArray) {
-    if (letterObject.hasOwnProperty(letter)) {
-      letterObject[letter].count = letterObject[letter].count + ~1;
-    } else {
-      letterObject[letter] = { count: 1 };
+
+  const letterSet = new Set(letterArray);
+
+  for (const uniqueLetter of letterSet) {
+    const letterCount = letterArray.filter(
+      (letter) => letter === uniqueLetter
+    ).length;
+
+    const letterPercentages = {};
+    for (const char in letterObject) {
+      letterPercentages[char] = (letterObject[char] / totalLetters) * 100;
     }
+    // console.log(letterPercentages);
+    progressBarUpdate(letterPercentages, totalLetters);
   }
-  console.log(letterObject);
 }
 
 function progressBarUpdate(percentages, total) {
@@ -77,9 +67,5 @@ function progressBarUpdate(percentages, total) {
   const percentageValues = Object.entries(percentages);
   percentageValues.sort((a, b) => b[1] - a[1]);
   const sortedPercentages = Object.fromEntries(percentageValues);
-  console.log(sortedPercentages);
-
-  // for (){
-
-  // }
+  // console.log(sortedPercentages);
 }
