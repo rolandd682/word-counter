@@ -12,6 +12,7 @@
 
   /* color */
   --color-neutral0: #ffffff;
+  --color-neutral800: #21222c;
   --color-neutral100: #f2f2f7;
   --color-neutral200: #e4e4ef;
   --color-neutral900: #12131a;
@@ -124,12 +125,33 @@ body {
   font-weight: 600;
 }
 
-#progressBarContainer {
-  width: 100%;
-  background-color: grey;
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
 }
-#progressBar {
-  width: 1%;
-  height: 30px;
-  background-color: green;
+
+.progress-letter {
+  color: white;
+}
+
+.progress-bar {
+  background-color: var(--color-neutral800);
+  height: 12px;
+  width: 100%;
+  border-radius: 999px;
+}
+
+.progress-fill {
+  background-color: var(--color-purple400);
+  height: 12px;
+  width: 50%;
+  border-radius: 999px;
+}
+
+.progress-stat {
+  color: white;
+
+  width: 100%;
+  max-width: max-content;
 }
