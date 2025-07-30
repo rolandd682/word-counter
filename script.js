@@ -5,7 +5,7 @@ const textInput = document.getElementById("text-area");
 const totalCharCount = document.getElementById("total-char-count");
 const wordCount = document.getElementById("word-count");
 const sentenceCount = document.getElementById("sentence-count");
-const progressBarStatus = document.getElementById("progressBars");
+const progressBars = document.querySelector(".progress-bars");
 
 function themeChange() {
   if (backgroundTheme.id === "background-white") {
@@ -33,7 +33,7 @@ function counter() {
 modeButton.addEventListener("click", themeChange);
 
 textInput.addEventListener("input", counter);
-textInput.addEventListener("input", findletterDensities);
+textInput.addEventListener("input", renderLetterDensities);
 
 function findletterDensities() {
   const letterDensities = [];
@@ -51,7 +51,9 @@ function findletterDensities() {
       (letter) => letter === uniqueLetter
     ).length;
 
-    const letterPercentage = letterCount / letterArray.length;
+    const letterPercentage = ((letterCount / letterArray.length) * 100).toFixed(
+      2
+    );
 
     const letterDensity = {
       [uniqueLetter]: {
@@ -62,17 +64,33 @@ function findletterDensities() {
 
     letterDensities.push(letterDensity);
   }
-
-  // console.log(letterArray);
-  // console.log(letterSet);
+  return letterDensities;
 }
+function renderLetterDensities() {
+  const letterDensities = findletterDensities();
 
-function progressBarUpdate(percentages, total) {
-  // console.log(percentages);
-  // console.log(total);
-  // console.log(percentagesSortedByValue);
-  const percentageValues = Object.entries(percentages);
-  percentageValues.sort((a, b) => b[1] - a[1]);
-  const sortedPercentages = Object.fromEntries(percentageValues);
-  // console.log(sortedPercentages);
+  progressBars.innerHTML = "";
+
+  letterDensities.sort((a, b) => {
+    `const key1 = Object.keys(a)[0];`;
+    const key2 = Object.keys(b)[0];
+    console.log(key2);
+    return a[key1].count - b[key2].count;
+  });
+
+  for (const letterDensity of letterDensities) {
+    const letter = Object.keys(letterDensity)[0];
+    const { count, percentage } = letterDensity[letter];
+
+    progressBars.insertAdjacentHTML(
+      "afterbegin",
+      `<div class="progress-bar-container">
+      <p class="progress-letter">${letter}</p>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: ${percentage}% "></div>
+      </div>
+      <p class="progress-stat">${count}(${percentage})</p>
+    </div>`
+    );
+  }
 }
