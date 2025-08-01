@@ -6,6 +6,7 @@ const totalCharCount = document.getElementById("total-char-count");
 const wordCount = document.getElementById("word-count");
 const sentenceCount = document.getElementById("sentence-count");
 const progressBars = document.querySelector(".progress-bars");
+const moreButton = document.getElementById("more-button");
 
 function themeChange() {
   if (backgroundTheme.id === "background-white") {
@@ -34,6 +35,8 @@ modeButton.addEventListener("click", themeChange);
 
 textInput.addEventListener("input", counter);
 textInput.addEventListener("input", renderLetterDensities);
+
+moreButton.addEventListener("click", function);
 
 function findletterDensities() {
   const letterDensities = [];
@@ -72,7 +75,7 @@ function renderLetterDensities() {
   progressBars.innerHTML = "";
 
   letterDensities.sort((a, b) => {
-    `const key1 = Object.keys(a)[0];`;
+    const key1 = Object.keys(a)[0];
     const key2 = Object.keys(b)[0];
     console.log(key2);
     return a[key1].count - b[key2].count;
@@ -92,5 +95,11 @@ function renderLetterDensities() {
       <p class="progress-stat">${count}(${percentage})</p>
     </div>`
     );
+  }
+}
+
+function defaultRender() {
+  for (i = 0; i < 5; i++){
+
   }
 }
